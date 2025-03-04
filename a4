@@ -1,0 +1,50 @@
+import * as React from 'react';
+import { TextField, Button } from '@mui/material';
+function App() {
+// State hooks for first name and last name
+const [firstName, setFirstName] = React.useState('');
+const [lastName, setLastName] = React.useState('');
+// Handle form submission to display greeting
+const handleClick = () => {
+ // Basic JavaScript validation for empty fields
+ if (!firstName || !lastName) {
+ alert('Both First Name and Last Name are required!');
+ } else {
+ alert(`Hello ${firstName} ${lastName}!`);
+ }
+};
+return (
+ <div
+ style={{
+ display: 'flex',
+ justifyContent: 'center',
+ alignItems: 'center',
+ minHeight: '100vh', // Full viewport height
+ }}
+ >
+ <div style={{ display: 'flex', flexDirection: 'column', gap: '16px'
+}}>
+ {/* First Name TextField */}
+ <TextField
+ label="First Name"
+ variant="outlined"
+ value={firstName}
+ onChange={(e) => setFirstName(e.target.value)}
+ />
+ 
+ {/* Last Name TextField */}
+ <TextField
+ label="Last Name"
+ variant="outlined"
+ value={lastName}
+ onChange={(e) => setLastName(e.target.value)}
+ />
+ {/* Greet Me Button */}
+ <Button variant="contained" onClick={handleClick}>
+ Greet Me
+ </Button>
+ </div>
+ </div>
+);
+}
+export default App;
